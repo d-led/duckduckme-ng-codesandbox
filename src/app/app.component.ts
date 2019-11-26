@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppComponent {
   name = "Angular";
-  results = [];
+  results: any = [];
   constructor(private http: HttpClient) {}
   //todo: this doesn't work on a second search
   searchResults(event = null) {
@@ -20,9 +20,17 @@ export class AppComponent {
         "https://api.duckduckgo.com/?q=sensor&format=json&pretty=1",
         "callback"
       )
-      .subscribe(res => {
-        // console.log(res);
-        this.results = res.RelatedTopics;
-      });
+      .subscribe((data: {}) => {
+        this.results = data;
+        console.log(this.results);
+        console.log(data);
+      }); // subscribe(res => console.log(res))      });
+
+    //  handleError(arg0: string, arg1: string): any {
+    //     throw new Error("Method not implemented.");
+    //   }
+    //   log(arg0: string) {
+    //     throw new Error("Method not implemented.");
+    //   }
   }
 }
