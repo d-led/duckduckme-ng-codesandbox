@@ -10,6 +10,7 @@ export class AppComponent {
   name = "Angular";
   results = [];
   constructor(private http: HttpClient) {}
+  //todo: this doesn't work on a second search
   searchResults(event = null) {
     if (event && event.key !== "Enter") {
       return;
@@ -20,7 +21,7 @@ export class AppComponent {
         "callback"
       )
       .subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.results = res.RelatedTopics;
       });
   }
