@@ -17,9 +17,8 @@ export class AppComponent {
         "callback"
       )
       .subscribe(res => {
-        //this.results = res.json("RelatedTopics");
-
         console.log(res);
+        this.results = res.RelatedTopics;
       });
   }
 }
