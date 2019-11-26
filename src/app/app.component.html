@@ -16,10 +16,27 @@
 </div>
 
 <div *ngIf="results.length > 0">
-  <h2>Results</h2>
+  <h2>Topics</h2>
   <ul>
-    <li *ngFor="let result of results">
-      <a *ngIf="result.Text" href="result.FirstURL">{{result.Text}}</a>
-    </li>
+    <ng-container *ngFor="let result of results">
+      <li *ngIf="result.Text">
+        <a href="result.FirstURL">{{result.Text}}</a>
+      </li>
+    </ng-container>
+  </ul>
+
+  <h2>Related Topics</h2>
+
+  <ul>
+    <ng-container *ngFor="let result of results">
+      <h3 *ngIf="result.Name">{{result.Name}}</h3>
+      <ul>
+        <ng-container *ngFor="let topic of result.Topics">
+          <li *ngIf="topic.Text">
+            <a href="topic.FirstURL">{{topic.Text}}</a>
+          </li>
+        </ng-container>
+      </ul>
+    </ng-container>
   </ul>
 </div>
