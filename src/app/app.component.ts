@@ -21,8 +21,9 @@ export class AppComponent {
         "callback"
       )
       .subscribe((data: {}) => {
-        this.results = data;
+        this.results = data.RelatedTopics;
         console.log(this.results);
+
         console.log(data);
       }); // subscribe(res => console.log(res))      });
 
