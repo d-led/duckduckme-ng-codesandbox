@@ -8,12 +8,18 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppComponent {
   name = "Angular";
+  results = [];
   constructor(private http: HttpClient) {}
   searchResults() {
     return this.http
-      .get("https://api.duckduckgo.com/?q=sensor&format=json&pretty=1")
-      .subscribe(data => {
-        console.log(data);
+      .jsonp(
+        "https://api.duckduckgo.com/?q=sensor&format=json&pretty=1",
+        "callback"
+      )
+      .subscribe(res => {
+        //this.results = res.json("RelatedTopics");
+
+        console.log(res);
       });
   }
 }
