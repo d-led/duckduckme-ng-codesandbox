@@ -30,7 +30,7 @@
   <ul>
     <ng-container *ngFor="let result of results">
       <li *ngIf="result.Text">
-        <a href="result.FirstURL">{{result.Text}}</a>
+        <a href="{{result.FirstURL}}">{{result.Text}}</a>
       </li>
     </ng-container>
   </ul>
@@ -43,7 +43,7 @@
       <ul>
         <ng-container *ngFor="let topic of result.Topics">
           <li *ngIf="topic.Text">
-            <a href="topic.FirstURL">{{topic.Text}}</a>
+            <a href="{{topic.FirstURL}}">{{topic.Text}}</a>
           </li>
         </ng-container>
       </ul>
